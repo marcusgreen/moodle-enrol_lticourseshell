@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cartridge_basiclticourseshell_link xmlns="http://www.imsglobal.org/xsd/imslticourseshellcc_v1p0"
+    xmlns:blticourseshell = "http://www.imsglobal.org/xsd/imsbasiclticourseshell_v1p0"
+    xmlns:lticourseshellcm ="http://www.imsglobal.org/xsd/imslticourseshellcm_v1p0"
+    xmlns:lticourseshellcp ="http://www.imsglobal.org/xsd/imslticourseshellcp_v1p0"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation = "http://www.imsglobal.org/xsd/imslticourseshellcc_v1p0 http://www.imsglobal.org/xsd/lticourseshell/lticourseshellv1p0/imslticourseshellcc_v1p0.xsd
+http://www.imsglobal.org/xsd/imsbasiclticourseshell_v1p0 http://www.imsglobal.org/xsd/lticourseshell/lticourseshellv1p0/imsbasiclticourseshell_v1p0.xsd
+http://www.imsglobal.org/xsd/imslticourseshellcm_v1p0 http://www.imsglobal.org/xsd/lticourseshell/lticourseshellv1p0/imslticourseshellcm_v1p0.xsd
+http://www.imsglobal.org/xsd/imslticourseshellcp_v1p0 http://www.imsglobal.org/xsd/lticourseshell/lticourseshellv1p0/imslticourseshellcp_v1p0.xsd">
+    <blticourseshell:title></blticourseshell:title>
+    <blticourseshell:description></blticourseshell:description>
+    <blticourseshell:extensions platform="org.moodle.lms">
+        <lticourseshellcm:property name="icon_url"></lticourseshellcm:property>
+        <lticourseshellcm:property name="secure_icon_url"></lticourseshellcm:property>
+    </blticourseshell:extensions>
+    <blticourseshell:launch_url></blticourseshell:launch_url>
+    <blticourseshell:secure_launch_url></blticourseshell:secure_launch_url>
+    <blticourseshell:icon></blticourseshell:icon>
+    <blticourseshell:secure_icon></blticourseshell:secure_icon>
+    <blticourseshell:vendor>
+        <lticourseshellcp:code></lticourseshellcp:code>
+        <lticourseshellcp:name></lticourseshellcp:name>
+        <lticourseshellcp:description></lticourseshellcp:description>
+        <lticourseshellcp:url></lticourseshellcp:url>
+    </blticourseshell:vendor>
+    <test></test>
+</cartridge_basiclticourseshell_link>

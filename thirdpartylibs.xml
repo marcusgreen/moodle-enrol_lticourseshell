@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>ims-blticourseshell</location>
+        <name>IMS-Blticourseshell</name>
+        <description>Set of IMS-lticourseshell tools originaly provided by IMS.</description>
+        <version>1.0</version>
+        <license>MIT</license>
+        <repository>https://github.com/jfederico/ims-dev</repository>
+        <customised/>
+    </library>
+</libraries>
