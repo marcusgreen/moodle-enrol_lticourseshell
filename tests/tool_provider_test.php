@@ -172,7 +172,7 @@ final class tool_provider_test extends \advanced_testcase {
 
         $dataconnector = new data_connector();
         $consumer = new ToolConsumer('testkey', $dataconnector);
-        $consumer->ltiversion = ToolProvider::lticourseshell_VERSION2;
+        $consumer->ltiversion = ToolProvider::LTI_VERSION2;
         $consumer->secret = $tool->secret;
         $consumer->name = 'TEST CONSUMER NAME';
         $consumer->consumerName = 'TEST CONSUMER INSTANCE NAME';
@@ -199,7 +199,7 @@ final class tool_provider_test extends \advanced_testcase {
 
         $dataconnector = new data_connector();
         $consumer = new dummy_tool_consumer('testkey', $dataconnector);
-        $consumer->ltiversion = ToolProvider::lticourseshell_VERSION2;
+        $consumer->ltiversion = ToolProvider::LTI_VERSION2;
         $consumer->secret = $tool->secret;
         $consumer->name = 'TEST CONSUMER NAME';
         $consumer->consumerName = 'TEST CONSUMER INSTANCE NAME';
@@ -232,7 +232,7 @@ final class tool_provider_test extends \advanced_testcase {
 
         $dataconnector = new data_connector();
         $consumer = new dummy_tool_consumer('testkey', $dataconnector, false, true);
-        $consumer->ltiversion = ToolProvider::lticourseshell_VERSION2;
+        $consumer->ltiversion = ToolProvider::LTI_VERSION2;
         $consumer->secret = $tool->secret;
         $consumer->name = 'TEST CONSUMER NAME';
         $consumer->consumerName = 'TEST CONSUMER INSTANCE NAME';
@@ -534,10 +534,10 @@ final class tool_provider_test extends \advanced_testcase {
         $dataconnector = new data_connector();
         $consumer = new ToolConsumer('testkey', $dataconnector);
 
-        $ltiversion = ToolProvider::lticourseshell_VERSION2;
+        $ltiversion = ToolProvider::LTI_VERSION2;
         if ($secret === null && $proxy === null) {
             $consumer->secret = $tool->secret;
-            $ltiversion = ToolProvider::lticourseshell_VERSION1;
+            $ltiversion = ToolProvider::LTI_VERSION1;
         } else {
             $consumer->secret = $secret;
         }

@@ -19,7 +19,7 @@ namespace enrol_lticourseshell\local\ltiadvantage\entity;
 /**
  * Class deployment.
  *
- * This class represents an LTI Advantage Tool Deployment (http://www.imsglobal.org/spec/lticourseshell/v1p3/#tool-deployment).
+ * This class represents an LTI Advantage Tool Deployment (http://www.imsglobal.org/spec/lti/v1p3/#tool-deployment).
  *
  * @package enrol_lticourseshell
  * @copyright 2021 Jake Dallimore <jrhdallimore@gmail.com>

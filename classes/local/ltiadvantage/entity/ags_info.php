@@ -27,7 +27,7 @@ namespace enrol_lticourseshell\local\ltiadvantage\entity;
  */
 class ags_info {
     /** @var string Scope for lineitem management, used when a platform allows the tool to create lineitems.*/
-    private const SCOPES_LINEITEM_MANAGE = 'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem';
+    private const SCOPES_LINEITEM_MANAGE = 'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem';
 
     /** @var string Scope for lineitem reads, used when a tool only grants read access to line items.*/
     private const SCOPES_LINEITEM_READONLY = 'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly';

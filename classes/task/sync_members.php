@@ -82,7 +82,7 @@ class sync_members extends scheduled_task {
 
         // Get all the enabled tools.
         $tools = helper::get_lti_tools(array('status' => ENROL_INSTANCE_ENABLED, 'membersync' => 1,
-            'ltiversion' => 'lticourseshell-1p0/lticourseshell-2p0'));
+            'ltiversion' => '/lticourseshell-2p0'));
         foreach ($tools as $tool) {
             mtrace("Starting - Member sync for published tool '$tool->id' for course '$tool->courseid'.");
 

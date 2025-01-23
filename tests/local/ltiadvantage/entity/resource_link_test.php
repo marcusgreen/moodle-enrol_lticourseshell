@@ -147,7 +147,7 @@ final class resource_link_test extends \advanced_testcase {
                     'lineitemsurl' => new \moodle_url('https://platform.example.org/10/lineitems'),
                     'lineitemurl' => new \moodle_url('https://platform.example.org/10/lineitems/4/lineitem'),
                     'scope' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/score'
                     ]
                 ],
@@ -172,7 +172,7 @@ final class resource_link_test extends \advanced_testcase {
                     'lineitemsurl' => new \moodle_url('https://platform.example.org/10/lineitems'),
                     'lineitemurl' => null,
                     'scope' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/result.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/score',
                     ]
@@ -196,7 +196,7 @@ final class resource_link_test extends \advanced_testcase {
                     'lineitemsurl' => null,
                     'lineitemurl' => null,
                     'scope' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem'
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem'
                     ]
                 ],
                 'expected' => [

@@ -71,7 +71,7 @@ class sync_grades extends \core\task\scheduled_task {
 
         // Get all the enabled tools.
         if ($tools = \enrol_lticourseshell\helper::get_lti_tools(array('status' => ENROL_INSTANCE_ENABLED, 'gradesync' => 1,
-            'ltiversion' => 'lticourseshell-1p0/lticourseshell-2p0'))) {
+            'ltiversion' => '/lticourseshell-2p0'))) {
             foreach ($tools as $tool) {
                 mtrace("Starting - Grade sync for shared tool '$tool->id' for the course '$tool->courseid'.");
 

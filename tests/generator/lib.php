@@ -75,8 +75,8 @@ class enrol_lti_cs_generator extends component_generator_base {
      */
     public function create_published_resource(array $data): stdClass {
 
-        if (!empty($data['ltiversion']) && !in_array($data['ltiversion'], ['LTI-1p3', 'lticourseshell-1p0/lticourseshell-2p0'])) {
-            throw new coding_exception("The field 'ltiversion' must be either 'LTI-1p3' or 'lticourseshell-1p0/lticourseshell-2p0'.");
+        if (!empty($data['ltiversion']) && !in_array($data['ltiversion'], ['LTI-1p3', '/lticourseshell-2p0'])) {
+            throw new coding_exception("The field 'ltiversion' must be either 'LTI-1p3' or '/lticourseshell-2p0'.");
         }
 
         $instancedata = (object) [

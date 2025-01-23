@@ -54,14 +54,14 @@ if ($tool->status != ENROL_INSTANCE_ENABLED) {
 }
 
 // Check if the enrolment instance has been upgraded to a newer lticourseshell version.
-if ($tool->ltiversion != 'lticourseshell-1p0/lticourseshell-2p0') {
+if ($tool->ltiversion != '/lticourseshell-2p0') {
     throw new \moodle_exception('enrolltiversionincorrect', 'enrol_lticourseshell');
     exit();
 }
 
 $consumerkey = required_param('oauth_consumer_key', PARAM_TEXT);
-$ltiversion = optional_param('lticourseshell_version', null, PARAM_TEXT);
-$messagetype = required_param('lticourseshell_message_type', PARAM_TEXT);
+$ltiversion = optional_param('lti_version', null, PARAM_TEXT);
+$messagetype = required_param('lti_message_type', PARAM_TEXT);
 
 // Only accept launch requests from this endpoint.
 if ($messagetype != "basic-lticourseshell-launch-request") {
@@ -73,11 +73,11 @@ if ($messagetype != "basic-lticourseshell-launch-request") {
 $toolprovider = new \enrol_lticourseshell\tool_provider($toolid);
 
 // Special handling for lticourseshellv1 launch requests.
-if ($ltiversion === \IMSGlobal\LTI\ToolProvider\ToolProvider::lticourseshell_VERSION1) {
+if ($ltiversion === \IMSGlobal\LTI\ToolProvider\ToolProvider::LTI_VERSION1) {
     $dataconnector = new \enrol_lticourseshell\data_connector();
     $consumer = new \IMSGlobal\LTI\ToolProvider\ToolConsumer($consumerkey, $dataconnector);
     // Check if the consumer has already been registered to the enrol_lti_cs_lticourseshell2_consumer table. Register if necessary.
-    $consumer->ltiversion = \IMSGlobal\LTI\ToolProvider\ToolProvider::lticourseshell_VERSION1;
+    $consumer->ltiversion = \IMSGlobal\LTI\ToolProvider\ToolProvider::LTI_VERSION1;
     // For lticourseshellv1, set the tool secret as the consumer secret.
     $consumer->secret = $tool->secret;
     $consumer->name = optional_param('tool_consumer_instance_name', '', PARAM_TEXT);

@@ -62,7 +62,7 @@ final class resource_link_repository_test extends \advanced_testcase {
             new \moodle_url('https://lms.example.com/context/24/lineitems'),
             new \moodle_url('https://lms.example.com/context/24/lineitem/3'),
             [
-                'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                 'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly',
                 'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/result.readonly',
                 'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/score'

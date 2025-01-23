@@ -19,7 +19,7 @@ namespace enrol_lticourseshell\local\ltiadvantage\entity;
 /**
  * Class resource_link.
  *
- * This class represents an LTI Advantage Resource Link (http://www.imsglobal.org/spec/lticourseshell/v1p3/#resource-link).
+ * This class represents an LTI Advantage Resource Link (http://www.imsglobal.org/spec/lti/v1p3/#resource-link).
  *
  * @package    enrol_lticourseshell
  * @copyright 2021 Jake Dallimore <jrhdallimore@gmail.com>

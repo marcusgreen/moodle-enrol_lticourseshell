@@ -42,7 +42,7 @@ require_once(__DIR__."/../../config.php");
 $iss = required_param('iss', PARAM_URL); // Issuer URI of the calling platform.
 $loginhint = required_param('login_hint', PARAM_RAW); // Platform ID for the person to login.
 $targetlinkuri = required_param('target_link_uri', PARAM_URL); // The took launch URL.
-// Optional lticourseshell_message_hint. See https://www.imsglobal.org/spec/lticourseshell/v1p3#additional-login-parameters-0.
+// Optional lticourseshell_message_hint. See https://www.imsglobal.org/spec/lti/v1p3#additional-login-parameters-0.
 // If found, this must be returned unmodified to the platform.
 $ltimessagehint = optional_param('lti_message_hint', null, PARAM_RAW);
 
@@ -52,11 +52,11 @@ $ltimessagehint = optional_param('lti_message_hint', null, PARAM_RAW);
 // - enrol/lticourseshell/launch_deeplink.php endpoint (for deep linking launches)
 // Thus, the target_link_uri signifies intent to perform a certain launch type. It can be used to generate the
 // redirect_uri param for the auth request but must first be verified, as it is unsigned data at this stage.
-// See here: https://www.imsglobal.org/spec/lticourseshell/v1p3/impl#verify-the-target_link_uri.
+// See here: https://www.imsglobal.org/spec/lti/v1p3/impl#verify-the-target_link_uri.
 //
 // Also note that final redirection to the resource (after the login process is complete) should rely on the
 // https://purl.imsglobal.org/spec/lti/claim/target_link_uri claim instead of the target_link_uri value provided here.
-// See here: http://www.imsglobal.org/spec/lticourseshell/v1p3/#target-link-uri.
+// See here: http://www.imsglobal.org/spec/lti/v1p3/#target-link-uri.
 $validuris = [
     (new moodle_url('/enrol/lticourseshell/launch.php'))->out(false), // Resource link launches.
     (new moodle_url('/enrol/lticourseshell/launch_deeplink.php'))->out(false) // Deep linking launches.
@@ -70,7 +70,7 @@ if (!in_array($targetlinkuri, $validuris)) {
 
 // Because client_id is optional, this endpoint receives a param 'id', a unique id generated when creating the registration.
 // A registration can thus be located by either the tuple {iss, client_id} (if client_id is provided), or by the tuple {iss, id},
-// (if client_id is not provided). See https://www.imsglobal.org/spec/lticourseshell/v1p3/#client_id-login-parameter.
+// (if client_id is not provided). See https://www.imsglobal.org/spec/lti/v1p3/#client_id-login-parameter.
 global $_REQUEST;
 if (empty($_REQUEST['client_id']) && !empty($_REQUEST['id'])) {
     $_REQUEST['client_id'] = $_REQUEST['id'];

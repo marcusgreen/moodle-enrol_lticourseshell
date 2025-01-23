@@ -19,7 +19,7 @@ namespace enrol_lticourseshell\local\ltiadvantage\entity;
 /**
  * Class context, instances of which represent a context in the platform.
  *
- * See: http://www.imsglobal.org/spec/lticourseshell/v1p3/#context-type-vocabulary for supported context types.
+ * See: http://www.imsglobal.org/spec/lti/v1p3/#context-type-vocabulary for supported context types.
  *
  * @package    enrol_lticourseshell
  * @copyright  2021 Jake Dallimore <jrhdallimore@gmail.com>
@@ -27,7 +27,7 @@ namespace enrol_lticourseshell\local\ltiadvantage\entity;
 class context {
 
     // The following full contexts are per the spec:
-    // http://www.imsglobal.org/spec/lticourseshell/v1p3/#context-type-vocabulary.
+    // http://www.imsglobal.org/spec/lti/v1p3/#context-type-vocabulary.
     /** @var string course template context */
     private const CONTEXT_TYPE_COURSE_TEMPLATE = 'http://purl.imsglobal.org/vocab/lis/v2/course#CourseTemplate';
 

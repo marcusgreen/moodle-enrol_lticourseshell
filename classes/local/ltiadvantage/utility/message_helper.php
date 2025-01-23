@@ -43,7 +43,7 @@ final class message_helper {
      * @return bool true if the user is an instructor, false otherwise.
      */
     private static function user_is_staff(array $jwtdata, bool $includelegacyroles = false): bool {
-        // See: http://www.imsglobal.org/spec/lticourseshell/v1p3/#role-vocabularies.
+        // See: http://www.imsglobal.org/spec/lti/v1p3/#role-vocabularies.
         // This method also provides support for (legacy, deprecated) simple names for context roles.
         // I.e. 'ContentDeveloper' may be supported.
         $launchroles = $jwtdata['https://purl.imsglobal.org/spec/lti/claim/roles'] ?? null;
@@ -76,7 +76,7 @@ final class message_helper {
      * @return bool true if the user is admin, false otherwise.
      */
     private static function user_is_admin(array $jwtdata): bool {
-        // See: http://www.imsglobal.org/spec/lticourseshell/v1p3/#role-vocabularies.
+        // See: http://www.imsglobal.org/spec/lti/v1p3/#role-vocabularies.
         $launchroles = $jwtdata['https://purl.imsglobal.org/spec/lti/claim/roles'] ?? null;
         if ($launchroles) {
             $adminroles = [

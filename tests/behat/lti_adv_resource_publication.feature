@@ -85,7 +85,7 @@ Feature: Publish activities and resources over LTI Advantage
   Scenario: A teacher can switch the version of a published resource from lticourseshell 1.1 to LTI Advantage
     Given the following "enrol_lticourseshell > published resources" exist:
       | name             | activity | course | ltiversion      |
-      | Published assignment | assign1  | C1     | lticourseshell-1p0/lticourseshell-2p0 |
+      | Published assignment | assign1  | C1     | /lticourseshell-2p0 |
     And I am on the "Course 1" "Course" page logged in as "teacher1"
     And I navigate to "Published as lticourseshell tools" in current page administration
     And I should see "No resources or activities are published yet"

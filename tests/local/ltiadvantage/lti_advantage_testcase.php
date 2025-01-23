@@ -22,7 +22,7 @@ use enrol_lticourseshell\local\ltiadvantage\repository\deployment_repository;
 use enrol_lticourseshell\local\ltiadvantage\repository\resource_link_repository;
 use enrol_lticourseshell\local\ltiadvantage\repository\user_repository;
 use enrol_lticourseshell\local\ltiadvantage\service\tool_launch_service;
-use Packback\Lti1p3\lticourseshellMessageLaunch;
+use Packback\Lti1p3\ltiMessageLaunch;
 
 /**
  * Parent class for LTI Advantage tests, providing environment setup and mock user launches.
@@ -31,7 +31,7 @@ use Packback\Lti1p3\lticourseshellMessageLaunch;
  * @copyright  2021 Jake Dallimore <jrhdallimore@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class lticourseshell_advantage_testcase extends \advanced_testcase {
+abstract class lti_advantage_testcase extends \advanced_testcase {
 
     /** @var string the default issuer for tests extending this class. */
     protected $issuer = 'https://lms.example.org';
@@ -278,7 +278,7 @@ abstract class lticourseshell_advantage_testcase extends \advanced_testcase {
 
         global $CFG;
         require_once($CFG->libdir . '/completionlib.php');
-        require_once($CFG->dirroot . '/auth/lticourseshell/auth.php');
+        require_once($CFG->dirroot . '/auth/lti/auth.php');
 
         if ($enableauthplugin) {
             $this->enable_auth();
@@ -318,11 +318,11 @@ abstract class lticourseshell_advantage_testcase extends \advanced_testcase {
             'gradesynccompletion' => $gradesynccompletion,
             'ltiversion' => 'LTI-1p3',
             'enrolstartdate' => $enrolstartdate,
-            'provisioningmodeinstructor' => $provisioningmodeinstructor ?: auth_plugin_lticourseshell::PROVISIONING_MODE_PROMPT_NEW_EXISTING,
-            'provisioningmodelearner' => $provisioningmodelearner ?: auth_plugin_lticourseshell::PROVISIONING_MODE_AUTO_ONLY
+            'provisioningmodeinstructor' => $provisioningmodeinstructor ?: auth_plugin_lti::PROVISIONING_MODE_PROMPT_NEW_EXISTING,
+            'provisioningmodelearner' => $provisioningmodelearner ?: auth_plugin_lti::PROVISIONING_MODE_AUTO_ONLY
         ];
-        $tool = $generator->create_lticourseshell_tool((object)$tooldata);
-        $tool = helper::get_lticourseshell_tool($tool->id);
+        $tool = $generator->create_lti_tool((object)$tooldata);
+        $tool = helper::get_lti_tool($tool->id);
 
         // Create a second module and publish it.
         $mod = $generator->create_module('assign', ['course' => $course->id, 'grade' => 100, 'completionsubmit' => 1,
@@ -336,11 +336,11 @@ abstract class lticourseshell_advantage_testcase extends \advanced_testcase {
             'gradesynccompletion' => $gradesynccompletion,
             'ltiversion' => 'LTI-1p3',
             'enrolstartdate' => $enrolstartdate,
-            'provisioningmodeinstructor' => $provisioningmodeinstructor ?: auth_plugin_lticourseshell::PROVISIONING_MODE_PROMPT_NEW_EXISTING,
-            'provisioningmodelearner' => $provisioningmodelearner ?: auth_plugin_lticourseshell::PROVISIONING_MODE_AUTO_ONLY
+            'provisioningmodeinstructor' => $provisioningmodeinstructor ?: auth_plugin_lti::PROVISIONING_MODE_PROMPT_NEW_EXISTING,
+            'provisioningmodelearner' => $provisioningmodelearner ?: auth_plugin_lti::PROVISIONING_MODE_AUTO_ONLY
         ];
-        $tool2 = $generator->create_lticourseshell_tool((object)$tooldata);
-        $tool2 = helper::get_lticourseshell_tool($tool2->id);
+        $tool2 = $generator->create_lti_tool((object)$tooldata);
+        $tool2 = helper::get_lti_tool($tool2->id);
 
         // Create a course and publish it.
         $tooldata = [
@@ -351,11 +351,11 @@ abstract class lticourseshell_advantage_testcase extends \advanced_testcase {
             'gradesynccompletion' => $gradesynccompletion,
             'ltiversion' => 'LTI-1p3',
             'enrolstartdate' => $enrolstartdate,
-            'provisioningmodeinstructor' => $provisioningmodeinstructor ?: auth_plugin_lticourseshell::PROVISIONING_MODE_PROMPT_NEW_EXISTING,
-            'provisioningmodelearner' => $provisioningmodelearner ?: auth_plugin_lticourseshell::PROVISIONING_MODE_AUTO_ONLY
+            'provisioningmodeinstructor' => $provisioningmodeinstructor ?: auth_plugin_lti::PROVISIONING_MODE_PROMPT_NEW_EXISTING,
+            'provisioningmodelearner' => $provisioningmodelearner ?: auth_plugin_lti::PROVISIONING_MODE_AUTO_ONLY
         ];
-        $tool3 = $generator->create_lticourseshell_tool((object)$tooldata);
-        $tool3 = helper::get_lticourseshell_tool($tool3->id);
+        $tool3 = $generator->create_lti_tool((object)$tooldata);
+        $tool3 = helper::get_lti_tool($tool3->id);
 
         return [$course, $tool, $tool2, $tool3, $reg, $deployment];
     }
@@ -365,7 +365,7 @@ abstract class lticourseshell_advantage_testcase extends \advanced_testcase {
      */
     protected function enable_auth() {
         $class = \core_plugin_manager::resolve_plugininfo_class('auth');
-        $class::enable_plugin('lticourseshell', true);
+        $class::enable_plugin('lti', true);
     }
 
     /**
@@ -424,10 +424,10 @@ abstract class lticourseshell_advantage_testcase extends \advanced_testcase {
                 'courseid' => $course->id,
                 'membersyncmode' => helper::MEMBER_SYNC_ENROL_AND_UNENROL,
                 'membersync' => false,
-                'ltiversion' => 'lticourseshell-1p0/lticourseshell-2p0',
+                'ltiversion' => '/lticourseshell-2p0',
                 'secret' => $tool['secret']
             ];
-            $legacytool = $generator->create_lticourseshell_tool((object)$tooldata);
+            $legacytool = $generator->create_lti_tool((object)$tooldata);
             $tools[] = $legacytool;
             $toolconsumermaprecords[] = ['toolid' => $legacytool->id, 'consumerid' => $consumerrecord->id];
         }

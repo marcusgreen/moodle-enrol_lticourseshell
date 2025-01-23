@@ -228,9 +228,9 @@ class manage_table extends \table_sql {
      * @param bool $useinitialsbar do you want to use the initials bar.
      */
     public function query_db($pagesize, $useinitialsbar = true) {
-        $total = \enrol_lticourseshell\helper::count_lti_tools(['courseid' => $this->courseid, 'ltiversion' => 'lticourseshell-1p0/lticourseshell-2p0']);
+        $total = \enrol_lticourseshell\helper::count_lti_tools(['courseid' => $this->courseid, 'ltiversion' => '/lticourseshell-2p0']);
         $this->pagesize($pagesize, $total);
-        $tools = \enrol_lticourseshell\helper::get_lti_tools(['courseid' => $this->courseid, 'ltiversion' => 'lticourseshell-1p0/lticourseshell-2p0'],
+        $tools = \enrol_lticourseshell\helper::get_lti_tools(['courseid' => $this->courseid, 'ltiversion' => '/lticourseshell-2p0'],
             $this->get_page_start(), $this->get_page_size());
         $this->rawdata = $tools;
         // Set initial bars.

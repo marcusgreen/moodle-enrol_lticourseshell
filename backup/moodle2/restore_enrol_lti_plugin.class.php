@@ -71,7 +71,7 @@ class restore_enrol_lti_cs_plugin extends restore_enrol_plugin {
 
         // Set the correct legacy ltiversion when restoring old tools.
         if (empty($data->ltiversion)) {
-            $data->ltiversion = 'lticourseshell-1p0/lticourseshell-2p0';
+            $data->ltiversion = '/lticourseshell-2p0';
         }
 
         // Generate a new uuid for LTI Advantage restores.

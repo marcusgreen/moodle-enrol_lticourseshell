@@ -133,7 +133,7 @@ class data_connector extends DataConnector {
             'consumerkey' => $key,
             'name' => $consumer->name,
             'secret' => $consumer->secret,
-            'ltiversion' => $consumer->ltiversion,
+            'ltiversion' => $consumer->ltiVersion,
             'consumername' => $consumer->consumerName,
             'consumerversion' => $consumer->consumerVersion,
             'consumerguid' => $consumer->consumerGuid,
@@ -481,7 +481,7 @@ class data_connector extends DataConnector {
            LEFT OUTER JOIN {{$this->contexttable}} c
                         ON r.contextid = c.id
                      WHERE (r.consumerid = ? OR c.consumerid = ?)
-                           AND lticourseshellresourcelinkkey = ?";
+                           AND ltiresourcelinkkey = ?";
             $params = [
                 $resourcelink->getConsumer()->getRecordId(),
                 $resourcelink->getConsumer()->getRecordId(),
@@ -501,7 +501,7 @@ class data_connector extends DataConnector {
             } else {
                 $resourcelink->setConsumerId(null);
             }
-            $resourcelink->lticourseshellResourceLinkId = $row->lticourseshellresourcelinkkey;
+            $resourcelink->lticourseshellResourceLinkId = $row->ltiresourcelinkkey;
             $settings = unserialize($row->settings);
             if (!is_array($settings)) {
                 $settings = array();
@@ -560,7 +560,7 @@ class data_connector extends DataConnector {
         $data = [
             'consumerid' => $consumerid,
             'contextid' => $contextid,
-            'lticourseshellresourcelinkkey' => $resourcelink->getId(),
+            'ltiresourcelinkkey' => $resourcelink->getId(),
             'settings' => $settingsvalue,
             'primaryresourcelinkid' => $primaryresourcelinkid,
             'shareapproved' => $approved,
@@ -940,8 +940,8 @@ class data_connector extends DataConnector {
 
         $resourcelink = null;
         if ($resourcelinkrecord = $DB->get_record($this->resourcelinktable, ['consumerid' => $consumer->getRecordId()],
-            'lticourseshellresourcelinkkey')) {
-            $resourcelink = ResourceLink::fromConsumer($consumer, $resourcelinkrecord->lticourseshellresourcelinkkey);
+            'ltiresourcelinkkey')) {
+            $resourcelink = ResourceLink::fromConsumer($consumer, $resourcelinkrecord->ltiresourcelinkkey);
         }
 
         return $resourcelink;
@@ -958,8 +958,8 @@ class data_connector extends DataConnector {
 
         $resourcelink = null;
         if ($resourcelinkrecord = $DB->get_record($this->resourcelinktable, ['contextid' => $context->getRecordId()],
-            'lticourseshellresourcelinkkey')) {
-            $resourcelink = ResourceLink::fromContext($context, $resourcelinkrecord->lticourseshellresourcelinkkey);
+            'ltiresourcelinkkey')) {
+            $resourcelink = ResourceLink::fromContext($context, $resourcelinkrecord->ltiresourcelinkkey);
         }
 
         return $resourcelink;

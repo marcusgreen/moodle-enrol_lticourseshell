@@ -7,7 +7,7 @@ require_once($CFG->dirroot . '/enrol/lticourseshell/ims-blticourseshell/TrivialO
 // with minimum values to meet the protocol
 function is_basic_lticourseshell_request() {
    $good_message_type = $_REQUEST["lticourseshell_message_type"] == "basic-lticourseshell-launch-request";
-   $good_lticourseshell_version = ($_REQUEST["lticourseshell_version"] == "lticourseshell-1p0" or $_REQUEST["lticourseshell_version"] == "lticourseshell-1.0");
+   $good_lticourseshell_version = ($_REQUEST["lticourseshell_version"] == "" or $_REQUEST["lticourseshell_version"] == "lticourseshell-1.0");
    $good_lticourseshell_version = $good_lticourseshell_version || ($_REQUEST["lticourseshell_version"] == "lticourseshell-2p0" or $_REQUEST["lticourseshell_version"] == "lticourseshell-2.0");
    $resource_link_id = $_REQUEST["resource_link_id"];
    if ($good_message_type and $good_lticourseshell_version and isset($resource_link_id) ) return(true);

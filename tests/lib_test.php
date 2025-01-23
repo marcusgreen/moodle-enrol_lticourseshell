@@ -32,7 +32,7 @@ use IMSGlobal\LTI\ToolProvider\User;
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once(__DIR__ . '/local/ltiadvantage/lticourseshell_advantage_testcase.php');
+require_once(__DIR__ . '/local/ltiadvantage/lti_advantage_testcase.php');
 
 /**
  * Tests for the enrol_lti_cs_plugin class.
@@ -41,7 +41,7 @@ require_once(__DIR__ . '/local/ltiadvantage/lticourseshell_advantage_testcase.ph
  * @copyright 2016 Jun Pataleta <jun@moodle.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-final class lib_test extends \lticourseshell_advantage_testcase {
+final class lib_test extends \lti_advantage_testcase {
 
     /**
      * Test set up.
@@ -64,13 +64,14 @@ final class lib_test extends \lticourseshell_advantage_testcase {
         $data = new \stdClass();
         $data->enrolstartdate = time();
         $data->secret = 'secret';
-        $tool = $this->getDataGenerator()->create_lticourseshell_tool($data);
+        $tool = $this->getDataGenerator()->create_lti_tool($data);
 
         // Create consumer and related data.
+        xdebug_break();
         $dataconnector = new data_connector();
         $consumer = new ToolConsumer('testkey', $dataconnector);
         $consumer->secret = $tool->secret;
-        $consumer->ltiversion = ToolProvider::lticourseshell_VERSION1;
+        $consumer->ltiversion = ToolProvider::LTI_VERSION1;
         $consumer->name = 'TEST CONSUMER NAME';
         $consumer->consumerName = 'TEST CONSUMER INSTANCE NAME';
         $consumer->consumerGuid = 'TEST CONSUMER INSTANCE GUID';
@@ -87,7 +88,6 @@ final class lib_test extends \lticourseshell_advantage_testcase {
         $lticourseshelluser->lticourseshellUserId = 'testuserid';
         $lticourseshelluser->email = 'user1@example.com';
         $lticourseshelluser->save();
-
         $tp = new tool_provider($tool->id);
         $tp->user = $lticourseshelluser;
         $tp->resourceLink = $resourcelink;
@@ -232,20 +232,20 @@ final class lib_test extends \lticourseshell_advantage_testcase {
             'cmid' => $mod->cmid,
             'courseid' => $course->id,
         ];
-        $tool = $this->getDataGenerator()->create_lticourseshell_tool((object)$tooldata);
+        $tool = $this->getDataGenerator()->create_lti_tool((object)$tooldata);
         $tooldata['cmid'] = $mod2->cmid;
-        $tool2 = $this->getDataGenerator()->create_lticourseshell_tool((object)$tooldata);
+        $tool2 = $this->getDataGenerator()->create_lti_tool((object)$tooldata);
 
         // Verify the instances are both enabled.
-        $modinstance = helper::get_lticourseshell_tool($tool->id);
-        $mod2instance = helper::get_lticourseshell_tool($tool2->id);
+        $modinstance = helper::get_lti_tool($tool->id);
+        $mod2instance = helper::get_lti_tool($tool2->id);
         $this->assertEquals(ENROL_INSTANCE_ENABLED, $modinstance->status);
         $this->assertEquals(ENROL_INSTANCE_ENABLED, $mod2instance->status);
 
         // Delete a module and verify the associated instance is disabled.
         course_delete_module($mod->cmid);
-        $modinstance = helper::get_lticourseshell_tool($tool->id);
-        $mod2instance = helper::get_lticourseshell_tool($tool2->id);
+        $modinstance = helper::get_ltil_tool($tool->id);
+        $mod2instance = helper::get_lti_tool($tool2->id);
         $this->assertEquals(ENROL_INSTANCE_DISABLED, $modinstance->status);
         $this->assertEquals(ENROL_INSTANCE_ENABLED, $mod2instance->status);
     }

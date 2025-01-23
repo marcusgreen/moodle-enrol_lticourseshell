@@ -78,9 +78,10 @@ class tool_provider extends ToolProvider {
         global $CFG, $SITE;
 
         $token = helper::generate_proxy_token($toolid);
-
-        $tool = helper::get_lticourseshell_tool($toolid);
+        xdebug_break();
+        $tool = helper::get_lti_tool($toolid);
         $this->tool = $tool;
+        xdebug_break();
 
         $dataconnector = new data_connector();
         parent::__construct($dataconnector);
@@ -112,7 +113,7 @@ class tool_provider extends ToolProvider {
 
         $requiredmessages = [
             new Message(
-                'basic-lticourseshell-launch-request',
+                'basic-lti-launch-request',
                 $toolpath,
                 [
                    'Context.id',
@@ -206,14 +207,14 @@ class tool_provider extends ToolProvider {
                 foreach ($handler->message as $message) {
                     $handlerurl = new moodle_url($message->path);
                     $fullpath = $handlerurl->out(false);
-                    if ($message->message_type == "basic-lticourseshell-launch-request" && $fullpath == $url) {
+                    if ($message->message_type == "basic-lti-launch-request" && $fullpath == $url) {
                         $correctlaunchurl = true;
                         break 2;
                     }
                 }
             }
         } else if ($this->tool->secret == $this->consumer->secret) {
-            // Test if the lticourseshell1 secret for this tool is being used. Then we know the correct tool is being launched.
+            // Test if the lti secret for this tool is being used. Then we know the correct tool is being launched.
             $correctlaunchurl = true;
         }
         if (!$correctlaunchurl) {
@@ -242,7 +243,7 @@ class tool_provider extends ToolProvider {
 
         $user->email = core_user::clean_field($this->user->email, 'email');
 
-        // Get the user data from the lticourseshell consumer.
+        // Get the user data from the lti consumer.
         $user = helper::assign_user_tool_data($tool, $user);
 
         // Check if the user exists.
@@ -253,7 +254,7 @@ class tool_provider extends ToolProvider {
                 $user->email = $user->username .  "@example.com";
             }
 
-            $user->auth = 'lticourseshell';
+            $user->auth = 'lti';
             $user->id = \user_create_user($user);
 
             // Get the updated user record.

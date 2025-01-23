@@ -65,7 +65,7 @@ final class ags_info_test extends \advanced_testcase {
                     'lineitemsurl' => new \moodle_url('https://platform.example.org/10/lineitems'),
                     'lineitemurl' => new \moodle_url('https://platform.example.org/10/lineitems/4/lineitem'),
                     'scopes' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/result.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/score'
@@ -74,7 +74,7 @@ final class ags_info_test extends \advanced_testcase {
                 'expectations' => [
                     'valid' => true,
                     'lineitemscope' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly'
                     ],
                     'resultscope' => 'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/result.readonly',
@@ -86,14 +86,14 @@ final class ags_info_test extends \advanced_testcase {
                     'lineitemsurl' => new \moodle_url('https://platform.example.org/10/lineitems'),
                     'lineitemurl' => new \moodle_url('https://platform.example.org/10/lineitems/4/lineitem'),
                     'scopes' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly',
                     ]
                 ],
                 'expectations' => [
                     'valid' => true,
                     'lineitemscope' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly',
                     ],
                     'scorescope' => null,
@@ -148,7 +148,7 @@ final class ags_info_test extends \advanced_testcase {
                     'lineitemsurl' => new \moodle_url('https://platform.example.org/10/lineitems'),
                     'lineitemurl' => null,
                     'scopes' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/result.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/score'
@@ -157,7 +157,7 @@ final class ags_info_test extends \advanced_testcase {
                 'expectations' => [
                     'valid' => true,
                     'lineitemscope' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly'
                     ],
                     'resultscope' => 'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/result.readonly',
@@ -169,14 +169,14 @@ final class ags_info_test extends \advanced_testcase {
                     'lineitemsurl' => new \moodle_url('https://platform.example.org/10/lineitems'),
                     'lineitemurl' => null,
                     'scopes' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly',
                     ]
                 ],
                 'expectations' => [
                     'valid' => true,
                     'lineitemscope' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly',
                     ],
                     'scorescope' => null,
@@ -231,7 +231,7 @@ final class ags_info_test extends \advanced_testcase {
                     'lineitemsurl' => new \moodle_url('https://platform.example.org/10/lineitems'),
                     'lineitemurl' => new \moodle_url('https://platform.example.org/10/lineitems/4/lineitem'),
                     'scopes' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/result.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/score',
@@ -249,7 +249,7 @@ final class ags_info_test extends \advanced_testcase {
                     'lineitemsurl' => new \moodle_url('https://platform.example.org/10/lineitems'),
                     'lineitemurl' => new \moodle_url('https://platform.example.org/10/lineitems/4/lineitem'),
                     'scopes' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/result.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/score',
@@ -259,13 +259,13 @@ final class ags_info_test extends \advanced_testcase {
                 'expectations' => [
                     'valid' => true,
                     'scopes' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/result.readonly',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/score',
                     ],
                     'lineitemscope' => [
-                        'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem',
+                        'https://purl.imsglobal.org/spec/lti-ags/scope/lineitem',
                         'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/lineitem.readonly'
                     ],
                     'resultscope' => 'https://purl.imsglobal.org/spec/lticourseshell-ags/scope/result.readonly',

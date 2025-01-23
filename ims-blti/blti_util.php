@@ -67,7 +67,7 @@ function signParameters($oldparms, $endpoint, $method, $oauth_consumer_key, $oau
 {
     global $last_base_string;
     $parms = $oldparms;
-    if ( ! isset($parms["lticourseshell_version"]) ) $parms["lticourseshell_version"] = "lticourseshell-1p0";
+    if ( ! isset($parms["lticourseshell_version"]) ) $parms["lticourseshell_version"] = "";
     if ( ! isset($parms["lticourseshell_message_type"]) ) $parms["lticourseshell_message_type"] = "basic-lticourseshell-launch-request";
     if ( ! isset($parms["oauth_callback"]) ) $parms["oauth_callback"] = "about:blank";
     if ( $org_id ) $parms["tool_consumer_instance_guid"] = $org_id;

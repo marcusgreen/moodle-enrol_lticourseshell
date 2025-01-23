@@ -115,7 +115,7 @@ class enrol_lticourseshell_plugin extends enrol_plugin {
         if (empty($data->ltiversion) || $data->ltiversion == 'LTI-1p3') {
             $data->uuid = \core\uuid::generate();
         }
-
+        xdebug_break();
         $DB->insert_record('enrol_lti_cs_tools', $data);
 
         return $instanceid;
@@ -231,13 +231,13 @@ class enrol_lticourseshell_plugin extends enrol_plugin {
 
         $versionoptions = [
             'LTI-1p3' => get_string('lticourseshell13', 'enrol_lticourseshell'),
-            'lticourseshell-1p0/lticourseshell-2p0' => get_string('lticourseshelllegacy', 'enrol_lticourseshell')
+            '/lticourseshell-2p0' => get_string('lticourseshelllegacy', 'enrol_lticourseshell')
         ];
         $mform->addElement('select', 'ltiversion', get_string('ltiversion', 'enrol_lticourseshell'), $versionoptions);
         $mform->addHelpButton('ltiversion', 'ltiversion', 'enrol_lticourseshell');
         $legacy = optional_param('legacy', 0, PARAM_INT);
         if (empty($instance->id)) {
-            $mform->setDefault('ltiversion', $legacy ? 'lticourseshell-1p0/lticourseshell-2p0' : 'LTI-1p3');
+            $mform->setDefault('ltiversion', $legacy ? '/lticourseshell-2p0' : 'LTI-1p3');
         }
 
         $nameattribs = array('size' => '20', 'maxlength' => '255');
