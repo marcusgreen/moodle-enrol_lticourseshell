@@ -60,13 +60,13 @@ if (!enrol_is_enabled('lticourseshell')) {
 if (empty($idtoken) && empty($launchid)) {
     throw new coding_exception('Error: launch requires id_token');
 }
+xdebug_break();
 
 // Support caching the launch and retrieving it after the account binding process described in auth::complete_login().
 $sesscache = new launch_cache_session();
 $issdb = new issuer_database(new application_registration_repository(), new deployment_repository());
 $cookie = new lti_cookie();
 $serviceconnector = new LtiServiceConnector($sesscache, new http_client());
-xdebug_break();
 if ($idtoken) {
     $messagelaunch = LtiMessageLaunch::new($issdb, $sesscache, $cookie, $serviceconnector)
         ->initialize($_POST);
@@ -88,6 +88,7 @@ if (!empty($launchdata['https://purl.imsglobal.org/spec/lti/claim/lti1p1']['oaut
     );
 }
 
+xdebug_break();
 // To authenticate, we need the resource's account provisioning mode for the given lticourseshell role.
 if (empty($launchdata['https://purl.imsglobal.org/spec/lti/claim/custom']['id'])) {
     throw new \moodle_exception('lticourseshelladvlauncherror:missingid', 'enrol_lticourseshell');

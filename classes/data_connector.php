@@ -116,7 +116,7 @@ class data_connector extends DataConnector {
      */
     public function saveToolConsumer($consumer) {
         global $DB;
-
+        xdebug_break();
         $key = $consumer->getKey();
         $key256 = DataConnector::getConsumerKey($key);
         if ($key === $key256) {
